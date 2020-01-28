@@ -1,0 +1,237 @@
+//////////////////////////////////
+// Variables
+//////////////////////////////////
+
+$white: #fff;
+$lightGray: #f1f3f5;
+$gray: rgb(117, 117, 117);
+$black: rgb(31, 31, 31);
+
+$blue: #00bcd4;
+
+//////////////////////////////////
+// Mixins
+//////////////////////////////////
+
+@mixin flexCenterXY {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin flexCenterX {
+  display: flex;
+  justify-content: center;
+}
+
+@mixin flexCenterY {
+  display: flex;
+  align-items: center;
+}
+
+@mixin shadow {
+  box-shadow: 0 2px 2px 1px rgba(0, 0, 0, 0.05);
+}
+
+//////////////////////////////////
+// General
+//////////////////////////////////
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Open Sans", sans-serif;
+  line-height: 1.4;
+}
+
+a {
+  color: #333;
+  text-decoration: none;
+}
+
+.App {
+  min-height: 100vh;
+  width: 100vw;
+  background-color: $lightGray;
+  overflow: hidden;
+}
+
+.wrapper {
+  height: 100%;
+  width: 900px;
+  margin: 0 auto;
+}
+
+.container {
+  height: 100%;
+  width: 100%;
+}
+
+//////////////////////////////////
+// Buttons
+//////////////////////////////////
+
+.button {
+  height: auto;
+  width: auto;
+  text-align: center;
+  padding: 6px 17px;
+  border: 1px solid $blue;
+  border-radius: 3px;
+  cursor: pointer;
+  font-size: 0.85rem;
+  transition: all 0.08s ease-in-out;
+  color: $black;
+
+  &:hover {
+    background-color: $blue;
+    color: $white;
+  }
+}
+
+//////////////////////////////////
+// Navbar
+//////////////////////////////////
+
+.navbar-container {
+  height: 60px;
+  width: 100%;
+  background-color: $white;
+  @include shadow();
+  user-select: none;
+}
+
+.navbar-container .wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo {
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.4rem;
+  color: $black;
+  cursor: pointer;
+}
+
+//////////////////////////////////
+// Login
+//////////////////////////////////
+
+.login.container {
+  @include flexCenterXY();
+  margin-top: 50px;
+}
+
+.form-title {
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 1.3rem;
+  color: $black;
+}
+
+.login-form {
+  height: auto;
+  width: 400px;
+  padding: 50px;
+  background-color: $white;
+  border-radius: 3px;
+  @include shadow();
+}
+
+.login-form-row {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 10px;
+
+  label {
+    font-size: 0.8rem;
+    color: $black;
+    margin-bottom: 3px;
+  }
+
+  input {
+    border: none;
+    background-color: $lightGray;
+    padding: 8px 15px;
+    border-radius: 4px;
+  }
+}
+
+.form-buttons-row {
+  display: flex;
+  justify-content: center;
+}
+
+form {
+  margin-bottom: 30px;
+}
+
+//////////////////////////////////
+// Home
+//////////////////////////////////
+
+.home.wrapper {
+  margin-top: 30px;
+}
+//////////////////////////////////
+// Post
+//////////////////////////////////
+
+.post {
+  height: auto;
+  width: 100%;
+  padding: 20px;
+  background-color: $white;
+  border-radius: 4px;
+  @include shadow();
+  margin-bottom: 20px;
+
+  &.info-post {
+    text-align: center;
+    padding: 30px 0;
+    color: $gray;
+    user-select: none;
+  }
+}
+
+.post-header {
+  @include flexCenterY();
+  justify-content: space-between;
+}
+
+.post-left {
+  @include flexCenterY();
+  width: 20%;
+}
+
+.post-avatar {
+  height: 60px;
+  width: 60px;
+  min-width: 60px;
+  border-radius: 50%;
+  background-color: pink;
+  margin-right: 20px;
+}
+
+.post-author {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: $black;
+}
+
+.post-time {
+  font-size: 0.8rem;
+  color: $gray;
+}
+
+.post-body {
+  width: 75%;
+  font-size: 0.9rem;
+  color: $black;
+}

@@ -1,0 +1,7 @@
+//Todo
+
+//ERRORS
+-handle signout error
+-signin user add banner to nav
+
+-Move rootreducer from store to /reducers
