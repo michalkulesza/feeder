@@ -10,7 +10,6 @@ const initState = {
 const userReducer = (state = initState, action) => {
   switch (action.type) {
     case SET_UNAUTHENTICATED:
-      console.log("SET UNAUTHENTICATED");
       return initState;
     case SET_USER:
       return {

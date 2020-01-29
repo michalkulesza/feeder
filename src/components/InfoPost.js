@@ -1,9 +1,9 @@
 import React from "react";
 
-const InfoPost = () => {
+const InfoPost = props => {
   return (
     <div className="post info-post">
-      <p>Please log in to see the feed.</p>
+      <p>{props.children}</p>
     </div>
   );
 };

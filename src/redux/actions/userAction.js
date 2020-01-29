@@ -43,11 +43,11 @@ export const signupUser = (user, history) => dispatch => {
 
 export const createUser = (uid, user) => dispatch => {
   db.collection("users")
-    .add({
+    .doc(uid)
+    .set({
       username: user.username,
       email: user.email,
       uid
     })
-    .then(docRef => console.log(`User ${docRef.id} added to Firestore.`))
     .catch(err => console.error(err));
 };

@@ -4,4 +4,5 @@
 -handle signout error
 -signin user add banner to nav
 
--Move rootreducer from store to /reducers
+-Handle username validation
+-keep user logged in, localstorage?

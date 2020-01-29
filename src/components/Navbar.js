@@ -41,7 +41,7 @@ const button = (props, authenticated, dispatch, userName) => {
 
 const Navbar = props => {
   const authenticated = useSelector(state => state.user.authenticated);
-  const userName = useSelector(state => state.user.username);
+  const userName = useSelector(state => state.firebase.profile.username);
   const dispatch = useDispatch();
 
   return (

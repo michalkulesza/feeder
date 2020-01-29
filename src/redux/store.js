@@ -1,21 +1,12 @@
-import { createStore, combineReducers, applyMiddleware, compose } from "redux";
+import { createStore, applyMiddleware, compose } from "redux";
+import rootReducer from "./reducers/rootReducer";
 import thunk from "redux-thunk";
-import userReducer from "./reducers/userReducer";
-import dataReducer from "./reducers/dataReducer";
-import miscReducer from "./reducers/miscReducer";
-
-const initialState = {};
 
 const middleware = [thunk];
-
-const reducers = combineReducers({
-  user: userReducer,
-  data: dataReducer,
-  misc: miscReducer
-});
+const initialState = {};
 
 const store = createStore(
-  reducers,
+  rootReducer,
   initialState,
   compose(
     applyMiddleware(...middleware),

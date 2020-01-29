@@ -7,9 +7,6 @@ export const SIGN_UP = "SIGN_UP";
 export const LOADING_USER = "LOADING_USER";
 export const SET_TOKEN = "SET_TOKEN";
 
-//Data reducer types
-export const GET_POSTS = "GET_POSTS";
-
 //Misc Reducer types
 export const SET_ERROR = "SET_ERROR";
 export const REMOVE_ERROR = "REMOVE_ERROR";
