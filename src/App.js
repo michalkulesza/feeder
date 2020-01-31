@@ -1,6 +1,8 @@
 import React from "react";
 import firebase from "firebase/app";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import Notifier from "./Notifier";
+import { SnackbarProvider } from "notistack";
 
 //Components
 import Home from "./components/Home";
@@ -28,18 +30,21 @@ const rrfProps = {
 function App() {
   return (
     <Provider store={store}>
-      <ReactReduxFirebaseProvider {...rrfProps}>
-        <Router>
-          <div className="App">
-            <Navbar />
-            <Switch>
-              <Route exact path="/" component={Home}></Route>
-              <Route path="/login" component={Login}></Route>
-              <Route path="/signup" component={SignUp}></Route>
-            </Switch>
-          </div>
-        </Router>
-      </ReactReduxFirebaseProvider>
+      <SnackbarProvider>
+        <ReactReduxFirebaseProvider {...rrfProps}>
+          <Router>
+            <div className="App">
+              <Navbar />
+              <Notifier />
+              <Switch>
+                <Route exact path="/" component={Home}></Route>
+                <Route path="/login" component={Login}></Route>
+                <Route path="/signup" component={SignUp}></Route>
+              </Switch>
+            </div>
+          </Router>
+        </ReactReduxFirebaseProvider>
+      </SnackbarProvider>
     </Provider>
   );
 }

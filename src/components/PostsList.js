@@ -3,8 +3,9 @@ import Post from "./Post";
 
 function PostsList({ posts }) {
   return (
-    <div>
-      {posts.length > 0 &&
+    <>
+      {posts &&
+        posts.length > 0 &&
         posts.map(post => (
           <Post
             content={post.body}
@@ -13,7 +14,7 @@ function PostsList({ posts }) {
             key={post.id}
           />
         ))}
-    </div>
+    </>
   );
 }
 
