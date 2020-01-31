@@ -1,9 +1,7 @@
 //Todo
 
 //ERRORS
+-fixup inconsistent error feedback
 -handle signout error
--signin user add banner to navxx
 
--Handle username validation
--keep user logged in, localstorage?
--remove error refducer/action
+-add loading UI

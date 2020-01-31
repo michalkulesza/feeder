@@ -7,12 +7,7 @@ function PostsList({ posts }) {
       {posts &&
         posts.length > 0 &&
         posts.map(post => (
-          <Post
-            content={post.body}
-            author={post.userName}
-            createdAt={post.createdAt}
-            key={post.id}
-          />
+          <Post content={post.body} author={post.author} createdAt={post.createdAt} key={post.id} />
         ))}
     </>
   );

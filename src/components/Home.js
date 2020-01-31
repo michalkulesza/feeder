@@ -6,15 +6,16 @@ import { useFirestoreConnect } from "react-redux-firebase";
 
 const Home = () => {
   useFirestoreConnect([{ collection: "posts", orderBy: [["createdAt", "desc"]] }]);
-  const authenticated = useSelector(state => state.user.authenticated);
-  const posts = useSelector(state => state.firestore.ordered);
+
+  const authUid = useSelector(state => state.firebase.auth.uid);
+  const posts = useSelector(state => state.firestore.ordered.posts);
 
   return (
     <div className="container">
       <div className="home wrapper">
-        {authenticated && posts ? (
-          <PostsList posts={posts.posts} />
-        ) : authenticated && !posts ? (
+        {authUid && posts ? (
+          <PostsList posts={posts} />
+        ) : authUid && !posts ? (
           <InfoPost>There are no posts yet.</InfoPost>
         ) : (
           <InfoPost>Please log in to see the feed.</InfoPost>

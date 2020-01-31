@@ -3,7 +3,7 @@ import { withRouter, Link } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { logoutUser } from "../redux/actions/userAction";
 
-const button = (props, authenticated, dispatch, userName) => {
+const button = (props, authUid, dispatch, userName) => {
   switch (props.location.pathname) {
     case "/signup":
       return (
@@ -18,7 +18,7 @@ const button = (props, authenticated, dispatch, userName) => {
         </Link>
       );
     default: {
-      return authenticated ? (
+      return authUid ? (
         <>
           <span>{userName && userName}</span>
           <div
@@ -40,7 +40,7 @@ const button = (props, authenticated, dispatch, userName) => {
 };
 
 const Navbar = props => {
-  const authenticated = useSelector(state => state.user.authenticated);
+  const authUid = useSelector(state => state.firebase.auth.uid);
   const userName = useSelector(state => state.firebase.profile.username);
   const dispatch = useDispatch();
 
@@ -50,7 +50,7 @@ const Navbar = props => {
         <Link to="/">
           <div className="logo">Feeder</div>
         </Link>
-        {button(props, authenticated, dispatch, userName)}
+        {button(props, authUid, dispatch, userName)}
       </div>
     </div>
   );

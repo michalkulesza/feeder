@@ -1,4 +1,5 @@
 import React from "react";
+import TimeAgo from "timeago-react";
 
 const Post = props => {
   return (
@@ -8,7 +9,9 @@ const Post = props => {
           <div className="post-avatar"></div>
           <span>
             <div className="post-author">{props.author}</div>
-            <div className="post-time">{props.createdAt}</div>
+            <div className="post-time">
+              <TimeAgo datetime={props.createdAt} />
+            </div>
           </span>
         </div>
         <div className="post-body">{props.content}</div>

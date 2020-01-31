@@ -47,7 +47,6 @@ export const logoutUser = history => dispatch => {
   auth
     .signOut()
     .then(() => {
-      dispatch({ type: "SET_UNAUTHENTICATED" });
       history.push("/login");
     })
     .catch(err => {
@@ -73,13 +72,8 @@ export const signupUser = (user, history) => dispatch => {
   auth
     .createUserWithEmailAndPassword(user.email, user.password)
     .then(data => {
-      dispatch({
-        type: "SET_USER",
-        uid: data.user.uid,
-        email: data.user.email,
-        username: user.username
-      });
       dispatch(createUser(data.user.uid, user));
+      dispatch(createUserName(data.user.uid, user.username));
       dispatch(
         enqueueSnackbar({
           message: `Account has been successfully created!`,
@@ -115,6 +109,31 @@ export const signupUser = (user, history) => dispatch => {
     });
 };
 
+export const createUserName = (uid, username) => dispatch => {
+  db.collection("userNames")
+    .doc(username)
+    .set({
+      uid
+    })
+    .catch(err => {
+      dispatch(
+        enqueueSnackbar({
+          message: `Error occured while creating user`,
+          options: {
+            key: new Date().getTime() + Math.random(),
+            variant: "error", //default, success, error, info, warning
+            autoHideDuration: 4000,
+            anchorOrigin: {
+              vertical: "bottom",
+              horizontal: "center"
+            }
+          }
+        })
+      );
+      console.error(err);
+    });
+};
+
 export const createUser = (uid, user) => dispatch => {
   db.collection("users")
     .doc(uid)
@@ -126,7 +145,7 @@ export const createUser = (uid, user) => dispatch => {
     .catch(err => {
       dispatch(
         enqueueSnackbar({
-          message: `Error adding user to Database`,
+          message: `Error occured while creating user`,
           options: {
             key: new Date().getTime() + Math.random(),
             variant: "error", //default, success, error, info, warning
