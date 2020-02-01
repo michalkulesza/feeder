@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import TextareaAutosize from "react-textarea-autosize";
 import PostMisc from "./PostMisc";
 import { useDispatch } from "react-redux";
@@ -12,8 +12,18 @@ const NewPost = ({ uid, username }) => {
     author: undefined,
     uid: undefined
   };
-  const [isActive, setIsActive] = useState(false);
+  const [isMouseOn, setIsMouseOn] = useState(false);
+  const [isFocus, setIsFocus] = useState(false);
+  const [active, setActive] = useState(false);
   const [post, setPost] = useState(postsInitValue);
+
+  useEffect(() => {
+    if (isMouseOn || isFocus) {
+      setActive(true);
+    } else {
+      setActive(false);
+    }
+  }, [isMouseOn, isFocus]);
 
   const handleChange = e => {
     setPost({ body: e.target.value, createdAt: new Date().toISOString(), author: username, uid });
@@ -34,8 +44,8 @@ const NewPost = ({ uid, username }) => {
   return (
     <div
       className="post active"
-      onMouseEnter={() => setIsActive(true)}
-      onMouseLeave={() => setIsActive(false)}
+      onMouseEnter={() => setIsMouseOn(true)}
+      onMouseLeave={() => setIsMouseOn(false)}
     >
       <div className="post-header">
         <div className="post-avatar"></div>
@@ -43,12 +53,14 @@ const NewPost = ({ uid, username }) => {
           <TextareaAutosize
             id="textarea"
             onChange={handleChange}
+            onFocus={() => setIsFocus(true)}
+            onBlur={() => setIsFocus(false)}
             value={post.body}
             placeholder="Say something..."
           />
         </div>
       </div>
-      <PostMisc isActive={isActive} handleNewPost={handleNewPost} />
+      <PostMisc active={active} handleNewPost={handleNewPost} />
     </div>
   );
 };

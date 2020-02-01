@@ -1,8 +1,8 @@
 import React from "react";
 
-const PostMisc = ({ isActive, handleNewPost }) => {
+const PostMisc = ({ active, handleNewPost }) => {
   return (
-    <div className={isActive ? "post-misc active" : "post-misc"}>
+    <div className={active ? "post-misc active" : "post-misc"}>
       <span></span>
 
       <div className="right">

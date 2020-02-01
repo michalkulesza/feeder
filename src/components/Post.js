@@ -2,24 +2,28 @@ import React from "react";
 import TimeAgo from "timeago-react";
 import MdTrash from "react-ionicons/lib/MdTrash";
 
-const Post = props => {
+const Post = ({ author, createdAt, content, authorsUid, currentUid, handleDelete, postKey }) => {
   return (
     <div className="post">
       <div className="post-header">
         <div className="post-left">
           <div className="post-avatar"></div>
           <span>
-            <div className="post-author">{props.author}</div>
+            <div className="post-author">{author}</div>
             <div className="post-time">
-              <TimeAgo datetime={props.createdAt} />
+              <TimeAgo datetime={createdAt} />
             </div>
           </span>
         </div>
         <div className="post-body">
-          <p>{props.content}</p>
+          <p>{content}</p>
         </div>
         <div className="post-delete">
-          <MdTrash className="icon-delete" />
+          {authorsUid === currentUid ? (
+            <MdTrash className="icon-delete" onClick={() => handleDelete(postKey)} />
+          ) : (
+            ""
+          )}
         </div>
       </div>
       <div className="post-misc"></div>

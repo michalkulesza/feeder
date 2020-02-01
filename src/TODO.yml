@@ -1,11 +1,12 @@
 //Todo
--create a post
 -create button component?
+-add delete post confirmation
 
 //ERRORS
 -fixup inconsistent error feedback
--handle signout error
+-handle signout error?
 
 //MISC
 -add loading UI
 -add animations
+-fix no posts behaviour when posts === [] in home

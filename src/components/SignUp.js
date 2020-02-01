@@ -96,7 +96,6 @@ const SignUp = props => {
       password.value.length >= 6 &&
       confirmPassword.value.length >= 6
     ) {
-      console.log(user);
       dispatch(signupUser(user, props.history));
     } else {
       return;
