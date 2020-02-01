@@ -310,3 +310,17 @@ form {
     color: red !important;
   }
 }
+
+//////////////////////////////////
+// Post social
+//////////////////////////////////
+
+.post-social {
+  height: 33px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 12px;
+  transition: all 0.2s ease-in-out;
+}

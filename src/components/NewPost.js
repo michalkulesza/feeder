@@ -43,7 +43,7 @@ const NewPost = ({ uid, username }) => {
 
   return (
     <div
-      className="post active"
+      className="post"
       onMouseEnter={() => setIsMouseOn(true)}
       onMouseLeave={() => setIsMouseOn(false)}
     >

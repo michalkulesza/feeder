@@ -2,6 +2,8 @@ import React from "react";
 import TimeAgo from "timeago-react";
 import MdTrash from "react-ionicons/lib/MdTrash";
 
+import PostSocial from "../components/PostSocial";
+
 const Post = ({ author, createdAt, content, authorsUid, currentUid, handleDelete, postKey }) => {
   return (
     <div className="post">
@@ -26,7 +28,6 @@ const Post = ({ author, createdAt, content, authorsUid, currentUid, handleDelete
           )}
         </div>
       </div>
-      <div className="post-misc"></div>
     </div>
   );
 };
