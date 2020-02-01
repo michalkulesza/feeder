@@ -1,7 +1,11 @@
 //Todo
+-create a post
+-create button component?
 
 //ERRORS
 -fixup inconsistent error feedback
 -handle signout error
 
+//MISC
 -add loading UI
+-add animations

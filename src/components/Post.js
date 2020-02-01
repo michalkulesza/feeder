@@ -1,5 +1,6 @@
 import React from "react";
 import TimeAgo from "timeago-react";
+import MdTrash from "react-ionicons/lib/MdTrash";
 
 const Post = props => {
   return (
@@ -14,7 +15,12 @@ const Post = props => {
             </div>
           </span>
         </div>
-        <div className="post-body">{props.content}</div>
+        <div className="post-body">
+          <p>{props.content}</p>
+        </div>
+        <div className="post-delete">
+          <MdTrash className="icon-delete" />
+        </div>
       </div>
       <div className="post-misc"></div>
     </div>
