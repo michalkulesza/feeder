@@ -22,7 +22,7 @@ const button = (props, authUid, dispatch, userName) => {
         <>
           <span>{userName && userName}</span>
           <div
-            className="button"
+            className="button red"
             onClick={() => {
               dispatch(logoutUser(props.history));
             }}

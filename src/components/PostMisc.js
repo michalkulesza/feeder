@@ -6,7 +6,7 @@ const PostMisc = ({ active, handleNewPost }) => {
       <span></span>
 
       <div className="right">
-        <div className="button" onClick={handleNewPost}>
+        <div className="button green" onClick={handleNewPost}>
           Send it
         </div>
       </div>

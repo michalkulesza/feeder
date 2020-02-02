@@ -9,6 +9,7 @@ $lightGray: #e1e3e4;
 $gray: rgb(117, 117, 117);
 $black: rgb(31, 31, 31);
 
+$red: #ce3636;
 $blue: #00bcd4;
 $green: #66bb6a;
 
@@ -95,6 +96,24 @@ a {
   &:hover {
     background-color: $blue;
     color: $white;
+  }
+
+  &.green {
+    border-color: $green;
+
+    &:hover {
+      background-color: $green;
+      color: $white;
+    }
+  }
+
+  &.red {
+    border-color: $red;
+
+    &:hover {
+      background-color: $red;
+      color: $white;
+    }
   }
 }
 
@@ -197,7 +216,6 @@ form {
   @include shadow();
   margin-bottom: 20px;
   position: relative;
-  z-index: 20;
 
   &.info-post {
     text-align: center;
@@ -323,4 +341,41 @@ form {
   justify-content: space-between;
   margin-top: 12px;
   transition: all 0.2s ease-in-out;
+}
+
+//////////////////////////////////
+// Post delete confirmation
+//////////////////////////////////
+
+.post-delete-confirmation {
+  opacity: 0;
+  pointer-events: none;
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(255, 255, 255, 0.945);
+  top: 0;
+  left: 0;
+  border-radius: 4px;
+  transition: opacity 0.15s ease-in-out;
+  @include flexCenterXY();
+
+  &.active {
+    opacity: 1;
+    pointer-events: all;
+  }
+
+  &.post-delete-confirmation-wrapper {
+    font-weight: normal;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+  }
+
+  span {
+    width: 170px;
+    display: flex;
+    justify-content: space-between;
+    margin: 10px auto 0 auto;
+  }
 }

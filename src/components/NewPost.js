@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from "react";
 import TextareaAutosize from "react-textarea-autosize";
-import PostMisc from "./PostMisc";
 import { useDispatch } from "react-redux";
 import { addPost } from "../redux/actions/postActions";
+
+import PostMisc from "./PostMisc";
 
 const NewPost = ({ uid, username }) => {
   const dispatch = useDispatch();
