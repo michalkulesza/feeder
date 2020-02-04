@@ -1,7 +1,7 @@
 import React from "react";
 import Post from "./Post";
 
-function PostsList({ posts, uid, handleDelete }) {
+function PostsList({ posts, uid, handleDelete, username }) {
   if (posts && uid) {
     return (
       posts.length > 0 &&
@@ -11,11 +11,15 @@ function PostsList({ posts, uid, handleDelete }) {
           author={post.author}
           authorsUid={post.uid}
           postId={post.id}
+          likes={post.likes}
+          likesUid={post.likesUid}
+          likesUsers={post.likesUsers}
           currentUid={uid}
           createdAt={post.createdAt}
           key={post.id}
           postKey={post.id}
           handleDelete={handleDelete}
+          username={username}
         />
       ))
     );

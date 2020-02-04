@@ -140,7 +140,9 @@ export const createUser = (uid, user) => dispatch => {
     .set({
       username: user.username,
       email: user.email,
-      uid
+      uid,
+      likedPosts: 0,
+      likedPostsUid: []
     })
     .catch(err => {
       dispatch(

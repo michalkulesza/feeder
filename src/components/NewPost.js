@@ -11,7 +11,10 @@ const NewPost = ({ uid, username }) => {
     body: "",
     createdAt: undefined,
     author: undefined,
-    uid: undefined
+    uid: undefined,
+    likes: 0,
+    likesUsers: [],
+    likesUid: []
   };
   const [isMouseOn, setIsMouseOn] = useState(false);
   const [isFocus, setIsFocus] = useState(false);
@@ -27,7 +30,13 @@ const NewPost = ({ uid, username }) => {
   }, [isMouseOn, isFocus]);
 
   const handleChange = e => {
-    setPost({ body: e.target.value, createdAt: new Date().toISOString(), author: username, uid });
+    setPost({
+      ...postsInitValue,
+      body: e.target.value,
+      createdAt: new Date().toISOString(),
+      author: username,
+      uid
+    });
   };
 
   const handleNewPost = () => {

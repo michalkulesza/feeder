@@ -24,7 +24,12 @@ const Home = () => {
         {uid && posts ? (
           <>
             <NewPost uid={uid} username={username} />
-            <PostsList posts={posts} uid={uid} handleDelete={handleDeletePost} />
+            <PostsList
+              posts={posts}
+              uid={uid}
+              handleDelete={handleDeletePost}
+              username={username}
+            />
           </>
         ) : uid && !posts ? (
           <>
