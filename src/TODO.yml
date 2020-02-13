@@ -1,12 +1,20 @@
 #//Todo
--avatars
--post social component
---likes
+-break up sass
+user's profile page
+--show users posts
+-responsive
+-post social component add comment button & count
+-post detail component
 --comments
--create button component?
+--likes
+-avatars
+-when deleteing the post delete the like from user
+-when adding/removing the post add/remove post to/from user's profile
+-use react-moment instead of timeago
 
 #//ERRORS
 -handle signout error?
+-handle userdetails.js errors
 
 #//MISC
 -fixup inconsistent error feedback UI

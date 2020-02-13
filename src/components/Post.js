@@ -1,5 +1,6 @@
 import React from "react";
 import TimeAgo from "timeago-react";
+import { Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { likePost } from "../redux/actions/postActions";
 import { dislikePost } from "../redux/actions/postActions";
@@ -48,7 +49,9 @@ const Post = ({
             <img src={avatar} alt="" />
           </div>
           <span>
-            <div className="post-author">{author}</div>
+            <Link to={`/user/${author}`}>
+              <div className="post-author">{author}</div>
+            </Link>
             <div className="post-time">
               <TimeAgo datetime={createdAt} />
             </div>

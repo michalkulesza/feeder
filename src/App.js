@@ -9,6 +9,7 @@ import Home from "./components/Home";
 import Login from "./components/Login";
 import SignUp from "./components/SignUp";
 import Navbar from "./components/Navbar";
+import UserProfile from "./components/UserProfile";
 
 //Redux
 import { Provider } from "react-redux";
@@ -40,6 +41,7 @@ function App() {
                 <Route exact path="/" component={Home}></Route>
                 <Route path="/login" component={Login}></Route>
                 <Route path="/signup" component={SignUp}></Route>
+                <Route path="/user/:id" component={UserProfile}></Route>
               </Switch>
             </div>
           </Router>

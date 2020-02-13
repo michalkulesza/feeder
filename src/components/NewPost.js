@@ -4,6 +4,7 @@ import { useDispatch } from "react-redux";
 import { addPost } from "../redux/actions/postActions";
 
 import PostMisc from "./PostMisc";
+import avatar from "../res/avatar-default.png";
 
 const NewPost = ({ uid, username }) => {
   const dispatch = useDispatch();
@@ -58,7 +59,9 @@ const NewPost = ({ uid, username }) => {
       onMouseLeave={() => setIsMouseOn(false)}
     >
       <div className="post-header">
-        <div className="post-avatar"></div>
+        <div className="post-avatar">
+          <img src={avatar} alt="" />
+        </div>
         <div className="post-body new-post-body">
           <TextareaAutosize
             id="textarea"

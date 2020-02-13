@@ -18,9 +18,11 @@ const button = (props, authUid, dispatch, userName) => {
         </Link>
       );
     default: {
-      return authUid ? (
+      return authUid && userName ? (
         <>
-          <span>{userName && userName}</span>
+          <Link to={`/user/${userName}`}>
+            <span>{userName}</span>
+          </Link>
           <div
             className="button red"
             onClick={() => {

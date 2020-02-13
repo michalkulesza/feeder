@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const PostSocial = ({
   likes,
@@ -13,6 +14,18 @@ const PostSocial = ({
 }) => {
   return (
     <div className="post-social">
+      <div className="post-social-liked">
+        {likesUsers.length > 0 && <span>Liked by: </span>}
+        {likesUsers.length > 0
+          ? likesUsers.map(user => {
+              return (
+                <Link to={`/user/${user}`} key={new Date() * Math.random()}>
+                  <div id="social-liked-by">{user}</div>
+                </Link>
+              );
+            })
+          : ""}
+      </div>
       <span>
         <p>Likes: {likes}</p>
         {likes > 0 && likesUid.length > 0 ? (
