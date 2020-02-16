@@ -47,7 +47,7 @@ const NewPost = ({ uid, username }) => {
       post.author !== undefined &&
       post.uid !== undefined
     ) {
-      dispatch(addPost(post));
+      dispatch(addPost(post, uid));
       setPost(postsInitValue);
     }
   };

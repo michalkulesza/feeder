@@ -1,6 +1,8 @@
 #//Todo
+-when adding/removing the post add/remove post to/from user's profile
+-remove likedPosts number from db and code
 -break up sass
-user's profile page
+-user's profile page
 --show users posts
 -responsive
 -post social component add comment button & count
@@ -8,13 +10,13 @@ user's profile page
 --comments
 --likes
 -avatars
--when deleteing the post delete the like from user
--when adding/removing the post add/remove post to/from user's profile
 -use react-moment instead of timeago
 
 #//ERRORS
+-deal with buttons wrongly displaying when there is more than one like
 -handle signout error?
 -handle userdetails.js errors
+-dislike can make user likes negative
 
 #//MISC
 -fixup inconsistent error feedback UI

@@ -19,7 +19,7 @@ const PostSocial = ({
         {likesUsers.length > 0
           ? likesUsers.map(user => {
               return (
-                <Link to={`/user/${user}`} key={new Date() * Math.random()}>
+                <Link to={`/user/${user}`} key={new Date().getTime() * Math.random()}>
                   <div id="social-liked-by">{user}</div>
                 </Link>
               );
@@ -35,7 +35,7 @@ const PostSocial = ({
                 <div
                   className="button red"
                   onClick={() => handleDislike(username, currentUid, postKey)}
-                  key={`${currentUid}${new Date()}`}
+                  key={new Date().getTime() * Math.random()}
                 >
                   Dislike
                 </div>
@@ -45,9 +45,9 @@ const PostSocial = ({
                 <div
                   className="button"
                   onClick={() => handleLike(username, currentUid, postKey)}
-                  key={`${currentUid}${new Date()}`}
+                  key={new Date().getTime() * Math.random()}
                 >
-                  Like
+                  Likex
                 </div>
               );
             }
@@ -56,7 +56,7 @@ const PostSocial = ({
           <div
             className="button"
             onClick={() => handleLike(username, currentUid, postKey)}
-            key={`${currentUid}${new Date()}`}
+            key={new Date().getTime() * Math.random()}
           >
             Like
           </div>

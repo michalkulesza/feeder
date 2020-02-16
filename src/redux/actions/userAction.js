@@ -162,3 +162,30 @@ export const createUser = (uid, user) => dispatch => {
       console.error(err);
     });
 };
+
+export const deleteUserLikes = (postObj, usersObj) => () => {
+  let users = JSON.parse(JSON.stringify(usersObj));
+  let post = JSON.parse(JSON.stringify(postObj));
+
+  post.likesUid &&
+    post.likesUid.map(likeUsersUid => {
+      if (users[likeUsersUid]) {
+        if (users[likeUsersUid].likedPosts > 0) {
+          users[likeUsersUid].likedPosts -= 1;
+        }
+        users[likeUsersUid].likedPostsUid = users[likeUsersUid].likedPostsUid.filter(
+          item => item !== post.id
+        );
+      }
+
+      post.likesUid.forEach(user => {
+        db.collection("users")
+          .doc(user)
+          .set({
+            ...users[user],
+            likedPosts: users[user].likedPosts,
+            likedPostsUid: users[user].likedPostsUid
+          });
+      });
+    });
+};
