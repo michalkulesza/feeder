@@ -141,7 +141,6 @@ export const createUser = (uid, user) => dispatch => {
       username: user.username,
       email: user.email,
       uid,
-      likedPosts: 0,
       likedPostsUid: []
     })
     .catch(err => {
@@ -170,9 +169,6 @@ export const deleteUserLikes = (postObj, usersObj) => () => {
   post.likesUid &&
     post.likesUid.map(likeUsersUid => {
       if (users[likeUsersUid]) {
-        if (users[likeUsersUid].likedPosts > 0) {
-          users[likeUsersUid].likedPosts -= 1;
-        }
         users[likeUsersUid].likedPostsUid = users[likeUsersUid].likedPostsUid.filter(
           item => item !== post.id
         );
@@ -181,9 +177,7 @@ export const deleteUserLikes = (postObj, usersObj) => () => {
       post.likesUid.forEach(user => {
         db.collection("users")
           .doc(user)
-          .set({
-            ...users[user],
-            likedPosts: users[user].likedPosts,
+          .update({
             likedPostsUid: users[user].likedPostsUid
           });
       });

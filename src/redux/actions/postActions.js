@@ -148,16 +148,13 @@ export const addLikeToUser = (currentUid, postKey) => dispatch => {
     .get()
     .then(doc => {
       const data = doc.data();
-      let likedPosts = data.likedPosts;
       let likedPostsUid = data.likedPostsUid;
 
-      likedPosts = likedPosts + 1;
       likedPostsUid.push(postKey);
 
       db.collection("users")
         .doc(currentUid)
         .update({
-          likedPosts,
           likedPostsUid
         })
         .catch(err => {
@@ -266,14 +263,12 @@ export const removeLikeFromUser = (currentUid, postKey) => dispatch => {
     .get()
     .then(doc => {
       let data = doc.data();
-      let likedPosts = data.likedPosts;
       let likedPostsUid = data.likedPostsUid;
       likedPostsUid.splice(likedPostsUid.indexOf(postKey), 1);
 
       db.collection("users")
         .doc(currentUid)
         .update({
-          likedPosts: likedPosts - 1,
           likedPostsUid
         })
         .catch(err => {
