@@ -1,16 +1,16 @@
 #//Todo
 -when adding/removing the post add/remove post to/from user's profile
--remove likedPosts number from db and code
 -break up sass
--user's profile page
---show users posts
--responsive
+-add comments
 -post social component add comment button & count
+-user's profile page
+--comments
+--users posts
+-responsive
 -post detail component
 --comments
 --likes
 -avatars
--use react-moment instead of timeago
 
 #//ERRORS
 -deal with buttons wrongly displaying when there is more than one like

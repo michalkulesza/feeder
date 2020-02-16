@@ -1,5 +1,5 @@
 import React from "react";
-import TimeAgo from "timeago-react";
+import Moment from "react-moment";
 import { Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { likePost } from "../redux/actions/postActions";
@@ -53,7 +53,8 @@ const Post = ({
               <div className="post-author">{author}</div>
             </Link>
             <div className="post-time">
-              <TimeAgo datetime={createdAt} />
+              {/* <TimeAgo datetime={createdAt} /> */}
+              <Moment fromNow>{createdAt}</Moment>
             </div>
           </span>
         </div>
