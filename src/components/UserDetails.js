@@ -70,48 +70,57 @@ const UserDetails = ({ match }) => {
               >
                 <span>{searchedUser.posts ? searchedUser.posts.length : "-"}</span> <p>Posts</p>
               </div>
-              <div
-                className={
-                  activeDisplay === "comments" ? "userdetails-stat active" : "userdetails-stat"
-                }
-                onClick={() => setActiveDisplay("comments")}
-              >
-                <span>{searchedUser.comments ? searchedUser.comments.length : "-"}</span>{" "}
-                <p>Comments</p>
-              </div>
             </div>
           </>
         ) : (
           <div className="userdetails-empty">Loading...</div>
         )}
       </div>
-      {activeDisplay === "likes" ? (
-        searchedUser.likedPostsUid.map(like => {
-          return posts.map(post => {
-            return (
-              post.id === like && (
-                <Post
-                  content={post.body}
-                  author={post.author}
-                  authorsUid={post.uid}
-                  postId={post.id}
-                  likes={post.likes}
-                  likesUid={post.likesUid}
-                  likesUsers={post.likesUsers}
-                  createdAt={post.createdAt}
-                  key={post.id}
-                  postKey={post.id}
-                  disableLike={true}
-                ></Post>
-              )
-            );
-          });
-        })
-      ) : activeDisplay === "posts" ? (
-        <p>posts</p>
-      ) : activeDisplay === "comments" ? (
-        <p>comments</p>
-      ) : null}
+      {activeDisplay === "likes"
+        ? searchedUser.likedPostsUid.map(like => {
+            return posts.map(post => {
+              return (
+                post.id === like && (
+                  <Post
+                    content={post.body}
+                    author={post.author}
+                    authorsUid={post.uid}
+                    postId={post.id}
+                    likes={post.likes}
+                    likesUid={post.likesUid}
+                    likesUsers={post.likesUsers}
+                    createdAt={post.createdAt}
+                    key={post.id}
+                    postKey={post.id}
+                    disableLike={true}
+                  ></Post>
+                )
+              );
+            });
+          })
+        : activeDisplay === "posts"
+        ? searchedUser.posts.map(userPost => {
+            return posts.map(post => {
+              return (
+                post.id === userPost && (
+                  <Post
+                    content={post.body}
+                    author={post.author}
+                    authorsUid={post.uid}
+                    postId={post.id}
+                    likes={post.likes}
+                    likesUid={post.likesUid}
+                    likesUsers={post.likesUsers}
+                    createdAt={post.createdAt}
+                    key={post.id}
+                    postKey={post.id}
+                    disableLike={true}
+                  ></Post>
+                )
+              );
+            });
+          })
+        : null}
     </>
   );
 };
