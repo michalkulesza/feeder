@@ -7,6 +7,8 @@
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.3.2",
     "@testing-library/user-event": "^7.1.2",
+    "draft-js": "^0.11.4",
+    "draft-js-export-html": "^1.4.1",
     "firebase": "^7.7.0",
     "moment": "^2.24.0",
     "node-sass": "^4.13.1",

@@ -12,22 +12,6 @@ export const addPost = (data, posts) => dispatch => {
     .then(() => {
       dispatch(addPostToUser(docId, authorUid, posts));
     })
-    .then(() => {
-      dispatch(
-        enqueueSnackbar({
-          message: `Post added`,
-          options: {
-            key: new Date().getTime() + Math.random(),
-            variant: "info", //default, success, error, info, warning
-            autoHideDuration: 4000,
-            anchorOrigin: {
-              vertical: "bottom",
-              horizontal: "center"
-            }
-          }
-        })
-      );
-    })
     .catch(err => {
       dispatch(
         enqueueSnackbar({

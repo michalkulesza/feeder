@@ -55,13 +55,12 @@ const Post = ({
               <div className="post-author">{author}</div>
             </Link>
             <div className="post-time">
-              {/* <TimeAgo datetime={createdAt} /> */}
               <Moment fromNow>{createdAt}</Moment>
             </div>
           </span>
         </div>
         <div className="post-body">
-          <p>{content}</p>
+          <div dangerouslySetInnerHTML={{ __html: content }}></div>
         </div>
         <div className="post-delete" onClick={handleConfirmDelete}>
           {authorsUid === currentUid ? <MdTrash className="icon-delete" /> : ""}

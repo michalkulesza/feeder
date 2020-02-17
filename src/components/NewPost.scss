@@ -13,3 +13,21 @@
   overflow: hidden;
   border-radius: 5px;
 }
+
+.DraftEditor-root,
+.DraftEditor-editorContainer,
+.public-DraftEditor-content {
+  width: 100%;
+}
+
+.DraftEditor-root {
+  border: 1px solid $lightGray;
+  border-radius: 3px;
+  padding: 19px 20px;
+}
+
+.public-DraftEditorPlaceholder-root {
+  position: absolute;
+  color: $gray;
+  pointer-events: none;
+}

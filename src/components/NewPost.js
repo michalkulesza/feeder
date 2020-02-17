@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from "react";
 import "./NewPost.scss";
-import TextareaAutosize from "react-textarea-autosize";
+// import TextareaAutosize from "react-textarea-autosize";
 import { useDispatch } from "react-redux";
 import { addPost } from "../redux/actions/postActions";
+import { Editor, EditorState } from "draft-js";
+import { stateToHTML } from "draft-js-export-html";
 
 import PostMisc from "./PostMisc";
 import avatar from "../res/avatar-default.png";
@@ -12,40 +14,42 @@ const NewPost = ({ uid, username, users }) => {
   const postsInitValue = {
     body: "",
     createdAt: undefined,
-    author: undefined,
-    uid: undefined,
+    author: username,
+    uid,
     likes: 0,
     likesUsers: [],
     likesUid: []
   };
+
   const [isFocus, setIsFocus] = useState(false);
   const [active, setActive] = useState(false);
   const [post, setPost] = useState(postsInitValue);
+  const [editorState, setEditorState] = useState(EditorState.createEmpty());
+  const [editorContentInHTML] = useState(null);
+  let editor = React.createRef();
 
   useEffect(() => {
     isFocus ? setActive(true) : setActive(false);
   }, [isFocus]);
 
-  const handleChange = e => {
+  const onEditorChange = editorState => {
+    setEditorState(editorState);
     setPost({
       ...postsInitValue,
-      body: e.target.value,
-      createdAt: new Date().toISOString(),
-      author: username,
-      uid
+      body: stateToHTML(editorState.getCurrentContent()),
+      createdAt: new Date().toISOString()
     });
+    console.log(post.body);
   };
 
   const handleNewPost = () => {
-    if (
-      post.body !== "" &&
-      post.createdAt !== undefined &&
-      post.author !== undefined &&
-      post.uid !== undefined
-    ) {
+    post.body.trimLeft();
+
+    if (post.body !== "" && post.createdAt && post.author && post.uid) {
       let currentUserPosts = users[uid].posts;
       dispatch(addPost(post, currentUserPosts));
       setPost(postsInitValue);
+      setEditorState(EditorState.createEmpty());
     }
   };
 
@@ -56,16 +60,17 @@ const NewPost = ({ uid, username, users }) => {
           <img src={avatar} alt="" />
         </div>
         <div className="post-body new-post-body">
-          <TextareaAutosize
-            id="textarea"
-            onChange={handleChange}
+          <Editor
+            editorState={editorState}
+            onChange={onEditorChange}
+            placeholder="Say something..."
             onFocus={() => setIsFocus(true)}
             onBlur={() => setIsFocus(false)}
-            value={post.body}
-            placeholder="Say something..."
+            ref={editor}
           />
         </div>
       </div>
+      <div dangerouslySetInnerHTML={editorContentInHTML}></div>
       <PostMisc active={active} handleNewPost={handleNewPost} />
     </div>
   );
