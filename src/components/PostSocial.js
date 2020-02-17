@@ -30,31 +30,18 @@ const PostSocial = ({
       </div>
       <span>
         <p>Likes: {likes}</p>
-        {disableLike === true ? null : likes > 0 && likesUid.length > 0 ? (
-          likesUid.map(like => {
-            if (like === currentUid) {
-              return (
-                <div
-                  className="button red"
-                  onClick={() => handleDislike(username, currentUid, postKey)}
-                  key={new Date().getTime() * Math.random()}
-                >
-                  Dislike
-                </div>
-              );
-            } else {
-              return (
-                <div
-                  className="button"
-                  onClick={() => handleLike(username, currentUid, postKey)}
-                  key={new Date().getTime() * Math.random()}
-                >
-                  Likex
-                </div>
-              );
-            }
-          })
-        ) : (
+        {disableLike !== true &&
+        likes > 0 &&
+        likesUid.length > 0 &&
+        likesUid.includes(currentUid) ? (
+          <div
+            className="button red"
+            onClick={() => handleDislike(username, currentUid, postKey)}
+            key={new Date().getTime() * Math.random()}
+          >
+            Dislike
+          </div>
+        ) : disableLike !== true ? (
           <div
             className="button"
             onClick={() => handleLike(username, currentUid, postKey)}
@@ -62,7 +49,7 @@ const PostSocial = ({
           >
             Like
           </div>
-        )}
+        ) : null}
       </span>
     </div>
   );
