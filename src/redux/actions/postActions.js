@@ -1,10 +1,17 @@
 import { db } from "../../firebase/fireConfig";
 import { enqueueSnackbar } from "./uiActions";
+import { addPostToUser } from "./userAction";
 
-export const addPost = data => dispatch => {
+export const addPost = (data, posts) => dispatch => {
+  let docId = db.collection("posts").doc().id;
+  let authorUid = data.uid;
+
   db.collection("posts")
-    .doc()
+    .doc(docId)
     .set(data)
+    .then(() => {
+      dispatch(addPostToUser(docId, authorUid, posts));
+    })
     .then(() => {
       dispatch(
         enqueueSnackbar({

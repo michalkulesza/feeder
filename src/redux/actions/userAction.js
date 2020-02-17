@@ -162,16 +162,18 @@ export const createUser = (uid, user) => dispatch => {
     });
 };
 
-export const deleteUserLikes = (postObj, usersObj) => () => {
+export const deleteLikesFromUser = (postObj, usersObj) => () => {
   let users = JSON.parse(JSON.stringify(usersObj));
   let post = JSON.parse(JSON.stringify(postObj));
 
   post.likesUid &&
-    post.likesUid.map(likeUsersUid => {
+    post.likesUid.forEach(likeUsersUid => {
       if (users[likeUsersUid]) {
         users[likeUsersUid].likedPostsUid = users[likeUsersUid].likedPostsUid.filter(
           item => item !== post.id
         );
+      } else {
+        return null;
       }
 
       post.likesUid.forEach(user => {
@@ -182,4 +184,26 @@ export const deleteUserLikes = (postObj, usersObj) => () => {
           });
       });
     });
+};
+
+export const addPostToUser = (docId, authorUid, posts) => () => {
+  let newPosts = [...posts, docId];
+
+  db.collection("users")
+    .doc(authorUid)
+    .update({
+      posts: newPosts
+    })
+    .catch(err => console.error(err));
+};
+
+export const deletePostFromUser = (postKey, user) => () => {
+  let newPosts = user.posts.filter(post => post !== postKey);
+
+  db.collection("users")
+    .doc(user.uid)
+    .update({
+      posts: newPosts
+    })
+    .catch(err => console.error(err));
 };

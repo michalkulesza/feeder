@@ -3,7 +3,8 @@ import "./Home.scss";
 import { useSelector, useDispatch } from "react-redux";
 import { useFirestoreConnect } from "react-redux-firebase";
 import { deletePost } from "../redux/actions/postActions";
-import { deleteUserLikes } from "../redux/actions/userAction";
+import { deleteLikesFromUser } from "../redux/actions/userAction";
+import { deletePostFromUser } from "../redux/actions/userAction";
 
 import PostsList from "./PostsList";
 import InfoPost from "./InfoPost";
@@ -25,7 +26,8 @@ const Home = () => {
     });
 
     if (key && post) {
-      dispatch(deleteUserLikes(post, users));
+      dispatch(deleteLikesFromUser(post, users));
+      dispatch(deletePostFromUser(key, users[uid]));
       dispatch(deletePost(key));
     }
   };
@@ -35,7 +37,7 @@ const Home = () => {
       <div className="home wrapper">
         {uid && posts ? (
           <>
-            <NewPost uid={uid} username={username} />
+            <NewPost uid={uid} username={username} users={users} />
             <PostsList
               posts={posts}
               uid={uid}

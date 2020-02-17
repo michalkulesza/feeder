@@ -7,7 +7,7 @@ import { addPost } from "../redux/actions/postActions";
 import PostMisc from "./PostMisc";
 import avatar from "../res/avatar-default.png";
 
-const NewPost = ({ uid, username }) => {
+const NewPost = ({ uid, username, users }) => {
   const dispatch = useDispatch();
   const postsInitValue = {
     body: "",
@@ -48,7 +48,8 @@ const NewPost = ({ uid, username }) => {
       post.author !== undefined &&
       post.uid !== undefined
     ) {
-      dispatch(addPost(post, uid));
+      let currentUserPosts = users[uid].posts;
+      dispatch(addPost(post, currentUserPosts));
       setPost(postsInitValue);
     }
   };
