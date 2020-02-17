@@ -1,4 +1,5 @@
 import React from "react";
+import "./PostMisc.scss";
 
 const PostMisc = ({ active, handleNewPost }) => {
   return (

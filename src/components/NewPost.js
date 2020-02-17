@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import "./NewPost.scss";
 import TextareaAutosize from "react-textarea-autosize";
 import { useDispatch } from "react-redux";
 import { addPost } from "../redux/actions/postActions";

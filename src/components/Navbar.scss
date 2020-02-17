@@ -1,0 +1,25 @@
+@import "../main.scss";
+
+.navbar-container {
+  height: 60px;
+  width: 100%;
+  background-color: $white;
+  @include shadow();
+  user-select: none;
+  padding: 0 20px;
+}
+
+.navbar-container .wrapper {
+  max-width: 1190px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo {
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.4rem;
+  color: $black;
+  cursor: pointer;
+}

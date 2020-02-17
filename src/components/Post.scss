@@ -1,0 +1,120 @@
+@import "../main.scss";
+
+.post {
+  height: auto;
+  width: calc(100% - 40px);
+  max-width: 900px;
+  padding: 20px;
+  background-color: $white;
+  border-radius: 4px;
+  @include shadow();
+  margin: 0 auto 20px auto;
+  position: relative;
+
+  &.info-post {
+    text-align: center;
+    padding: 30px 0;
+    color: $gray;
+    user-select: none;
+  }
+}
+
+.post-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+
+.post-left {
+  @include flexCenterY();
+  width: 20%;
+  min-width: 170px;
+}
+
+.post-avatar {
+  height: 50px;
+  width: 50px;
+  min-width: 50px;
+  margin-right: 20px;
+  margin: 5px 25px 5px 5px;
+  user-select: none;
+
+  img {
+    height: 100%;
+    width: 100%;
+    border-radius: 50%;
+  }
+}
+
+.post-author {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: $black;
+  cursor: pointer;
+}
+
+.post-time {
+  font-size: 0.8rem;
+  color: $gray;
+  user-select: none;
+}
+
+.post-body {
+  min-height: 60px;
+  @include flexCenterY();
+  width: 75%;
+  font-size: 0.9rem;
+  color: $black;
+  text-align: justify;
+}
+
+//////////////////////////////////
+// Post deletes
+//////////////////////////////////
+
+.post-delete {
+  height: 100%;
+  width: 20px;
+  cursor: pointer;
+
+  .icon-delete {
+    color: red !important;
+  }
+}
+
+//////////////////////////////////
+// Post delete confirmation
+//////////////////////////////////
+
+.post-delete-confirmation {
+  opacity: 0;
+  pointer-events: none;
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(255, 255, 255, 0.945);
+  top: 0;
+  left: 0;
+  border-radius: 4px;
+  transition: opacity 0.15s ease-in-out;
+  @include flexCenterXY();
+
+  &.active {
+    opacity: 1;
+    pointer-events: all;
+  }
+
+  &.post-delete-confirmation-wrapper {
+    font-weight: normal;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+  }
+
+  span {
+    width: 170px;
+    display: flex;
+    justify-content: space-between;
+    margin: 10px auto 0 auto;
+  }
+}

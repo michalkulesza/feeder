@@ -1,4 +1,5 @@
 import React from "react";
+import "./Post.scss";
 import Moment from "react-moment";
 import { Link } from "react-router-dom";
 import { useDispatch } from "react-redux";

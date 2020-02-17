@@ -1,4 +1,5 @@
 import React from "react";
+import "./Navbar.scss";
 import { withRouter, Link } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { logoutUser } from "../redux/actions/userAction";

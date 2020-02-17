@@ -1,0 +1,26 @@
+@import "../main.scss";
+
+.post-misc {
+  height: 0px;
+  transform: scaleY(0);
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 0px;
+  transition: all 0.2s ease-in-out;
+  &.active {
+    margin-top: 12px;
+    height: 33px;
+    transform: scaleY(1);
+  }
+
+  &.right {
+    width: 80px;
+    height: 40px;
+
+    &.button {
+      background-color: pink !important;
+    }
+  }
+}

@@ -1,4 +1,5 @@
 import React from "react";
+import "./Home.scss";
 import { useSelector, useDispatch } from "react-redux";
 import { useFirestoreConnect } from "react-redux-firebase";
 import { deletePost } from "../redux/actions/postActions";

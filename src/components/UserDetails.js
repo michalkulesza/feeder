@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import "./UserDetails.scss";
 import avatar from "../res/avatar-default.png";
 import { useSelector } from "react-redux";
 import { useFirestoreConnect } from "react-redux-firebase";

@@ -1,0 +1,98 @@
+@import "../main.scss";
+
+.userdetails {
+  height: 140px;
+  width: 100%;
+  background-color: $white;
+  padding: 20px;
+  border-radius: 3px;
+  @include shadow();
+  display: flex;
+}
+
+.userdetails-info {
+  height: 100px;
+  width: 300px;
+  display: flex;
+
+  span {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    margin-left: 15px;
+  }
+}
+
+.userdetails-avatar {
+  height: 100px;
+  min-width: 100px;
+  width: 100px;
+  user-select: none;
+
+  img {
+    height: 100%;
+    width: 100%;
+    border-radius: 50%;
+  }
+}
+
+.userdetails-name {
+  display: flex;
+  align-items: flex-end;
+  width: 100%;
+  font-size: 1.2rem;
+}
+
+.userdetails-joined {
+  display: flex;
+  align-items: flex-start;
+  width: 100%;
+  font-size: 0.8rem;
+  user-select: none;
+
+  #userdetails-date {
+    margin-left: 5px;
+  }
+}
+
+.userdetails-stats {
+  height: 100px;
+  width: calc(100% - 300px);
+  @include flexCenterY();
+  justify-content: flex-end;
+}
+
+.userdetails-stat {
+  height: 90px;
+  width: 90px;
+  margin-left: 15px;
+  border: 1px solid $lightGray;
+  border-radius: 4px;
+  padding: 10px;
+  @include flexCenterXY();
+  flex-direction: column;
+  user-select: none;
+  cursor: pointer;
+  transition: all 0.1s ease-in-out;
+
+  span {
+    font-size: 1.2rem;
+  }
+
+  p {
+    font-size: 0.8rem;
+  }
+
+  &:hover {
+    background-color: $lightGray;
+  }
+}
+
+.userdetails-empty {
+  height: 100%;
+  width: 100%;
+  @include flexCenterXY();
+  color: $gray;
+}

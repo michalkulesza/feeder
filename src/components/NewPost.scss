@@ -1,0 +1,15 @@
+@import "../main.scss";
+
+.new-post-body {
+  width: 100%;
+}
+
+#textarea {
+  padding: 1rem;
+  font-size: 0.9rem;
+  width: 100%;
+  resize: none;
+  border: 1px solid $lighterGray;
+  overflow: hidden;
+  border-radius: 5px;
+}
