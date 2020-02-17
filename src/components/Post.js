@@ -21,7 +21,8 @@ const Post = ({
   likes,
   likesUid,
   likesUsers,
-  username
+  username,
+  disableLike
 }) => {
   const dispatch = useDispatch();
 
@@ -89,6 +90,7 @@ const Post = ({
         postKey={postKey}
         author={author}
         username={username}
+        disableLike={disableLike}
       />
     </div>
   );

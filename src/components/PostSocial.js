@@ -11,13 +11,14 @@ const PostSocial = ({
   handleDislike,
   username,
   author,
-  postKey
+  postKey,
+  disableLike
 }) => {
   return (
     <div className="post-social">
       <div className="post-social-liked">
-        {likesUsers.length > 0 && <span>Liked by: </span>}
-        {likesUsers.length > 0
+        {likesUsers && likesUsers.length > 0 && <span>Liked by: </span>}
+        {likesUsers && likesUsers.length > 0
           ? likesUsers.map(user => {
               return (
                 <Link to={`/user/${user}`} key={new Date().getTime() * Math.random()}>
@@ -29,7 +30,7 @@ const PostSocial = ({
       </div>
       <span>
         <p>Likes: {likes}</p>
-        {likes > 0 && likesUid.length > 0 ? (
+        {disableLike === true ? null : likes > 0 && likesUid.length > 0 ? (
           likesUid.map(like => {
             if (like === currentUid) {
               return (

@@ -2,7 +2,7 @@ import React from "react";
 import Post from "./Post";
 
 function PostsList({ posts, uid, handleDelete, username }) {
-  if (posts && uid) {
+  if (posts) {
     return (
       posts.length > 0 &&
       posts.map(post => (

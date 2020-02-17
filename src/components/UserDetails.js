@@ -5,15 +5,20 @@ import { useSelector } from "react-redux";
 import { useFirestoreConnect } from "react-redux-firebase";
 import Moment from "react-moment";
 
+import Post from "./Post";
+
 const UserDetails = ({ match }) => {
   useFirestoreConnect([{ collection: "userNames" }]);
   useFirestoreConnect([{ collection: "users" }]);
+  useFirestoreConnect([{ collection: "posts" }]);
   const userNames = useSelector(state => state.firestore.data.userNames);
   const users = useSelector(state => state.firestore.data.users);
+  const posts = useSelector(state => state.firestore.ordered.posts);
   const user = match.params.id;
 
-  const [searchedUsersUid, setSearchedUsersUid] = useState(undefined);
-  const [searchedUser, setSearchedUser] = useState(undefined);
+  const [searchedUsersUid, setSearchedUsersUid] = useState(null);
+  const [searchedUser, setSearchedUser] = useState(null);
+  const [activeDisplay, setActiveDisplay] = useState(null);
 
   useEffect(() => {
     if (user && userNames && !searchedUsersUid) {
@@ -29,41 +34,85 @@ const UserDetails = ({ match }) => {
   }, [user, userNames, searchedUsersUid, users]);
 
   return (
-    <div className="userdetails">
-      {searchedUser ? (
-        <>
-          <div className="userdetails-info">
-            <div className="userdetails-avatar">
-              <img src={avatar} alt="" />
-            </div>
-            <span>
-              <div className="userdetails-name">{searchedUser.username}</div>
-              <div className="userdetails-joined">
-                Joined on:
-                <Moment id="userdetails-date" format="D MMM YYYY">
-                  {searchedUser.joined}
-                </Moment>
+    <>
+      <div className="userdetails">
+        {searchedUser ? (
+          <>
+            <div className="userdetails-info">
+              <div className="userdetails-avatar">
+                <img src={avatar} alt="" />
               </div>
-            </span>
-          </div>
-          <div className="userdetails-stats">
-            <div className="userdetails-stat">
-              <span>{searchedUser.likedPostsUid ? searchedUser.likedPostsUid.length : "-"}</span>{" "}
-              <p>Likes</p>
+              <span>
+                <div className="userdetails-name">{searchedUser.username}</div>
+                <div className="userdetails-joined">
+                  Joined on:
+                  <Moment id="userdetails-date" format="D MMM YYYY">
+                    {searchedUser.joined}
+                  </Moment>
+                </div>
+              </span>
             </div>
-            <div className="userdetails-stat">
-              <span>{searchedUser.posts ? searchedUser.posts.length : "-"}</span> <p>Posts</p>
+            <div className="userdetails-stats">
+              <div
+                className={
+                  activeDisplay === "likes" ? "userdetails-stat active" : "userdetails-stat"
+                }
+                onClick={() => setActiveDisplay("likes")}
+              >
+                <span>{searchedUser.likedPostsUid ? searchedUser.likedPostsUid.length : "-"}</span>{" "}
+                <p>Likes</p>
+              </div>
+              <div
+                className={
+                  activeDisplay === "posts" ? "userdetails-stat active" : "userdetails-stat"
+                }
+                onClick={() => setActiveDisplay("posts")}
+              >
+                <span>{searchedUser.posts ? searchedUser.posts.length : "-"}</span> <p>Posts</p>
+              </div>
+              <div
+                className={
+                  activeDisplay === "comments" ? "userdetails-stat active" : "userdetails-stat"
+                }
+                onClick={() => setActiveDisplay("comments")}
+              >
+                <span>{searchedUser.comments ? searchedUser.comments.length : "-"}</span>{" "}
+                <p>Comments</p>
+              </div>
             </div>
-            <div className="userdetails-stat">
-              <span>{searchedUser.comments ? searchedUser.comments.length : "-"}</span>{" "}
-              <p>Comments</p>
-            </div>
-          </div>
-        </>
-      ) : (
-        <div className="userdetails-empty">Loading...</div>
-      )}
-    </div>
+          </>
+        ) : (
+          <div className="userdetails-empty">Loading...</div>
+        )}
+      </div>
+      {activeDisplay === "likes" ? (
+        searchedUser.likedPostsUid.map(like => {
+          return posts.map(post => {
+            return (
+              post.id === like && (
+                <Post
+                  content={post.body}
+                  author={post.author}
+                  authorsUid={post.uid}
+                  postId={post.id}
+                  likes={post.likes}
+                  likesUid={post.likesUid}
+                  likesUsers={post.likesUsers}
+                  createdAt={post.createdAt}
+                  key={post.id}
+                  postKey={post.id}
+                  disableLike={true}
+                ></Post>
+              )
+            );
+          });
+        })
+      ) : activeDisplay === "posts" ? (
+        <p>posts</p>
+      ) : activeDisplay === "comments" ? (
+        <p>comments</p>
+      ) : null}
+    </>
   );
 };
 
