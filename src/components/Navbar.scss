@@ -23,3 +23,9 @@
   color: $black;
   cursor: pointer;
 }
+
+@media (max-width: $breakpoint-mobile) {
+  #nav-username {
+    display: none;
+  }
+}

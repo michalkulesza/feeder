@@ -1,18 +1,15 @@
 #//Todo
+- post detail component
 - user's profile page
 -- comments
 - add comments
 - post social component add comment button & count
-- responsive
-- post detail component
 -- comments
 -- likes
 - avatars
 
 #//ERRORS
-- deal with buttons wrongly displaying when there is more than one like
 - handle signout error?
-- handle userdetails.js errors
 
 #//MISC
 - fixup inconsistent error feedback UI

@@ -22,7 +22,7 @@ const button = (props, authUid, dispatch, userName) => {
       return authUid && userName ? (
         <>
           <Link to={`/user/${userName}`}>
-            <span>{userName}</span>
+            <span id="nav-username">{userName}</span>
           </Link>
           <div
             className="button red"

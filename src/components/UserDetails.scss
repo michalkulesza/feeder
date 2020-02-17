@@ -101,3 +101,51 @@
   @include flexCenterXY();
   color: $gray;
 }
+
+@media (max-width: $breakpoint-mobile) {
+  .userdetails {
+    flex-direction: column;
+    height: auto;
+    width: calc(100% - 10px);
+    margin: 0 auto 15px auto;
+    padding: 15px;
+  }
+
+  .userdetails-info {
+    height: auto;
+    width: 100%;
+  }
+
+  .userdetails-avatar {
+    height: 50px;
+    width: 50px;
+    min-width: 50px;
+  }
+
+  .userdetails-name {
+    font-size: 1rem;
+  }
+
+  .userdetails-joined {
+    font-size: 0.7rem;
+  }
+
+  .userdetails-stats {
+    width: 100%;
+    margin-top: 15px;
+    height: auto;
+  }
+
+  .userdetails-stat {
+    height: 60px;
+    width: 80px;
+
+    span {
+      font-size: 1rem;
+    }
+
+    p {
+      font-size: 0.7rem;
+    }
+  }
+}

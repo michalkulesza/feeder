@@ -118,3 +118,31 @@
     margin: 10px auto 0 auto;
   }
 }
+
+//////////////////////////////////
+// Media queries
+//////////////////////////////////
+
+@media (max-width: $breakpoint-mobile) {
+  .post {
+    width: calc(100% - 15px);
+    padding: 15px;
+  }
+
+  .post-header {
+    flex-direction: column;
+  }
+
+  .post-left {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+
+  .post-body {
+    width: 100%;
+  }
+
+  .post-delete {
+    margin-top: 20px;
+  }
+}

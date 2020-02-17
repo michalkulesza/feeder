@@ -18,18 +18,13 @@ const NewPost = ({ uid, username, users }) => {
     likesUsers: [],
     likesUid: []
   };
-  const [isMouseOn, setIsMouseOn] = useState(false);
   const [isFocus, setIsFocus] = useState(false);
   const [active, setActive] = useState(false);
   const [post, setPost] = useState(postsInitValue);
 
   useEffect(() => {
-    if (isMouseOn || isFocus) {
-      setActive(true);
-    } else {
-      setActive(false);
-    }
-  }, [isMouseOn, isFocus]);
+    isFocus ? setActive(true) : setActive(false);
+  }, [isFocus]);
 
   const handleChange = e => {
     setPost({
@@ -55,11 +50,7 @@ const NewPost = ({ uid, username, users }) => {
   };
 
   return (
-    <div
-      className="post"
-      onMouseEnter={() => setIsMouseOn(true)}
-      onMouseLeave={() => setIsMouseOn(false)}
-    >
+    <div className="post">
       <div className="post-header">
         <div className="post-avatar">
           <img src={avatar} alt="" />

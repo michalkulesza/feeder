@@ -53,3 +53,9 @@
     background-color: $lightestGray;
   }
 }
+
+@media (max-width: $breakpoint-mobile) {
+  .post-social-liked {
+    visibility: hidden;
+  }
+}
