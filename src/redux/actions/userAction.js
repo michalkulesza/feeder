@@ -64,7 +64,6 @@ export const logoutUser = history => dispatch => {
           }
         })
       );
-      console.error(err);
     });
 };
 
@@ -141,7 +140,9 @@ export const createUser = (uid, user) => dispatch => {
       username: user.username,
       email: user.email,
       uid,
-      likedPostsUid: []
+      likedPostsUid: [],
+      posts: [],
+      joined: new Date().toISOString()
     })
     .catch(err => {
       dispatch(

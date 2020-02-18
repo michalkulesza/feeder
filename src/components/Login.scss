@@ -15,7 +15,7 @@
 .login-form {
   height: auto;
   width: 400px;
-  padding: 50px;
+  padding: 50px 50px 30px;
   background-color: $white;
   border-radius: 3px;
   @include shadow();
@@ -41,6 +41,7 @@
 }
 
 .form-buttons-row {
+  margin-top: 30px;
   display: flex;
   justify-content: center;
 }

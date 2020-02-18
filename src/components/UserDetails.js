@@ -76,8 +76,9 @@ const UserDetails = ({ match }) => {
           <div className="userdetails-empty">Loading...</div>
         )}
       </div>
-      {activeDisplay === "likes"
-        ? searchedUser.likedPostsUid.map(like => {
+      {activeDisplay === "likes" ? (
+        searchedUser.likedPostsUid.lenght > 0 ? (
+          searchedUser.likedPostsUid.map(like => {
             return posts.map(post => {
               return (
                 post.id === like && (
@@ -98,8 +99,14 @@ const UserDetails = ({ match }) => {
               );
             });
           })
-        : activeDisplay === "posts"
-        ? searchedUser.posts.map(userPost => {
+        ) : (
+          <div className="noti-container">
+            <span>User didn't liked any post yet...</span>
+          </div>
+        )
+      ) : activeDisplay === "posts" ? (
+        searchedUser.posts.length > 0 ? (
+          searchedUser.posts.map(userPost => {
             return posts.map(post => {
               return (
                 post.id === userPost && (
@@ -120,7 +127,12 @@ const UserDetails = ({ match }) => {
               );
             });
           })
-        : null}
+        ) : (
+          <div className="noti-container">
+            <span>User doesn't have any posts yet...</span>
+          </div>
+        )
+      ) : null}
     </>
   );
 };

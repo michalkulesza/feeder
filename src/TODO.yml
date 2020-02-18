@@ -1,4 +1,5 @@
 #//Todo
+- new post text validation, regex?
 - post detail component
 - user's profile page
 -- comments
@@ -9,7 +10,6 @@
 - avatars
 
 #//ERRORS
-- handle signout error?
 
 #//MISC
 - fixup inconsistent error feedback UI
@@ -17,4 +17,3 @@
 - add animations
 - fix no posts behaviour when posts === [] in home
 - is post msic really necessary?
-- post can contain only spaces, no bueno
