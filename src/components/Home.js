@@ -35,7 +35,7 @@ const Home = () => {
   return (
     <div className="container">
       <div className="home wrapper">
-        {uid && posts ? (
+        {uid && posts && posts.length > 0 ? (
           <>
             <NewPost uid={uid} username={username} users={users} />
             <PostsList
@@ -45,7 +45,7 @@ const Home = () => {
               username={username}
             />
           </>
-        ) : uid && !posts ? (
+        ) : (uid && !posts) || posts === undefined || posts.length === 0 ? (
           <>
             <NewPost uid={uid} username={username} />
             <InfoPost>There are no posts yet.</InfoPost>

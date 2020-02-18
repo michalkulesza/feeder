@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import "./NewPost.scss";
-// import TextareaAutosize from "react-textarea-autosize";
 import { useDispatch } from "react-redux";
 import { addPost } from "../redux/actions/postActions";
 import { Editor, EditorState } from "draft-js";
@@ -39,7 +38,6 @@ const NewPost = ({ uid, username, users }) => {
       body: stateToHTML(editorState.getCurrentContent()),
       createdAt: new Date().toISOString()
     });
-    console.log(post.body);
   };
 
   const handleNewPost = () => {

@@ -77,7 +77,7 @@ const UserDetails = ({ match }) => {
         )}
       </div>
       {activeDisplay === "likes" ? (
-        searchedUser.likedPostsUid.lenght > 0 ? (
+        searchedUser.likedPostsUid.length > 0 ? (
           searchedUser.likedPostsUid.map(like => {
             return posts.map(post => {
               return (

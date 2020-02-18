@@ -12,8 +12,5 @@
 #//ERRORS
 
 #//MISC
-- fixup inconsistent error feedback UI
-- add loading UI
-- add animations
 - fix no posts behaviour when posts === [] in home
-- is post msic really necessary?
+- is post misc really necessary?
