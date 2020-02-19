@@ -45,7 +45,7 @@ const Home = () => {
               username={username}
             />
           </>
-        ) : (uid && !posts) || posts === undefined || posts.length === 0 ? (
+        ) : (uid && !posts) || (uid && posts === undefined) || (uid && posts.length === 0) ? (
           <>
             <NewPost uid={uid} username={username} />
             <InfoPost>There are no posts yet.</InfoPost>
