@@ -33,7 +33,7 @@ function App() {
     <Provider store={store}>
       <SnackbarProvider>
         <ReactReduxFirebaseProvider {...rrfProps}>
-          <Router basename="/feeder">
+          <Router>
             <div className="App">
               <Navbar />
               <Notifier />
