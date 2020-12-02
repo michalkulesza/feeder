@@ -1,51 +1,51 @@
-@import "../main.scss";
+@import "../../main.scss";
 
 .login.container {
-  @include flexCenterXY();
-  margin-top: 50px;
+	@include flexCenterXY();
+	margin-top: 50px;
 }
 
 .form-title {
-  text-align: center;
-  margin-bottom: 20px;
-  font-size: 1.3rem;
-  color: $black;
+	text-align: center;
+	margin-bottom: 20px;
+	font-size: 1.3rem;
+	color: $black;
 }
 
 .login-form {
-  height: auto;
-  width: 400px;
-  padding: 50px 50px 30px;
-  background-color: $white;
-  border-radius: 3px;
-  @include shadow();
+	height: auto;
+	width: 400px;
+	padding: 50px 50px 30px;
+	background-color: $white;
+	border-radius: 3px;
+	@include shadow();
 }
 
 .login-form-row {
-  display: flex;
-  flex-direction: column;
-  margin-bottom: 10px;
+	display: flex;
+	flex-direction: column;
+	margin-bottom: 10px;
 
-  label {
-    font-size: 0.8rem;
-    color: $black;
-    margin-bottom: 3px;
-  }
+	label {
+		font-size: 0.8rem;
+		color: $black;
+		margin-bottom: 3px;
+	}
 
-  input {
-    border: none;
-    background-color: $lighterGray;
-    padding: 8px 15px;
-    border-radius: 4px;
-  }
+	input {
+		border: none;
+		background-color: $lighterGray;
+		padding: 8px 15px;
+		border-radius: 4px;
+	}
 }
 
 .form-buttons-row {
-  margin-top: 30px;
-  display: flex;
-  justify-content: center;
+	margin-top: 30px;
+	display: flex;
+	justify-content: center;
 }
 
 form {
-  margin-bottom: 30px;
+	margin-bottom: 30px;
 }

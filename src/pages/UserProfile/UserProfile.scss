@@ -1,17 +1,17 @@
-@import "../main.scss";
+@import "../../main.scss";
 
 .wrapper {
-  &.userprofile {
-    margin-top: 30px;
+	&.userprofile {
+		margin-top: 30px;
 
-    .noti-container {
-      width: 100%;
-      display: flex;
-      justify-content: center;
+		.noti-container {
+			width: 100%;
+			display: flex;
+			justify-content: center;
 
-      span {
-        color: $gray;
-      }
-    }
-  }
+			span {
+				color: $gray;
+			}
+		}
+	}
 }

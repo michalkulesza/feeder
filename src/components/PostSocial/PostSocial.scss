@@ -1,71 +1,70 @@
-@import "../main.scss";
+@import "../../main.scss";
 
 .post-social {
-  height: 30px;
-  max-width: 100%;
-  margin: 0 auto;
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
-  margin-top: 12px;
-  transition: all 0.2s ease-in-out;
-  font-size: 0.8rem;
-  color: $gray;
+	height: 30px;
+	max-width: 100%;
+	margin: 0 auto;
+	display: flex;
+	align-items: center;
+	justify-content: flex-end;
+	margin-top: 12px;
+	transition: all 0.2s ease-in-out;
+	font-size: 0.8rem;
+	color: $gray;
 
-  .button {
-    margin: 0 10px;
-  }
+	.button {
+		margin: 0 10px;
+	}
 
-  span {
-    max-width: 200px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    cursor: default;
-    user-select: none;
+	span {
+		max-width: 200px;
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		cursor: default;
+		user-select: none;
 
-    p {
-      width: 60px;
-    }
-  }
+		p {
+			width: 60px;
+		}
+	}
 
-  .post-social-liked {
-    width: 100%;
-    height: 100%;
-    display: flex;
-    align-items: center;
+	.post-social-liked {
+		width: 100%;
+		height: 100%;
+		display: flex;
+		align-items: center;
 
-    span {
-      margin-right: 5px;
-      cursor: default;
-      user-select: none;
-    }
-  }
+		span {
+			margin-right: 5px;
+			cursor: default;
+			user-select: none;
+		}
+	}
 }
 
 #social-liked-by {
-  cursor: pointer;
-  padding: 2px 5px;
-  border-radius: 2px;
+	cursor: pointer;
+	padding: 2px 5px;
+	border-radius: 2px;
 
-  &:hover {
-    color: $black;
-    background-color: $lightestGray;
-  }
+	&:hover {
+		color: $black;
+		background-color: $lightestGray;
+	}
 }
 
 @media (max-width: $breakpoint-mobile) {
-  .post-social-liked {
-    visibility: hidden;
-  }
+	.post-social-liked {
+		visibility: hidden;
+	}
 }
-@import "../main.scss";
 
 .post-social-liked {
-  max-width: 80%;
-  overflow-x: hidden;
-  margin-right: 40px;
-  span {
-    min-width: 60px;
-  }
+	max-width: 80%;
+	overflow-x: hidden;
+	margin-right: 40px;
+	span {
+		min-width: 60px;
+	}
 }

@@ -8,7 +8,7 @@ import { dislikePost } from "../../redux/actions/postActions";
 
 import MdTrash from "react-ionicons/lib/MdTrash";
 import PostSocial from "../PostSocial/PostSocial";
-import avatar from "../res/avatar-default.png";
+import avatar from "../../res/avatar-default.png";
 
 const Post = ({
 	author,

@@ -1,151 +1,151 @@
-@import "../main.scss";
+@import "../../main.scss";
 
 .userdetails {
-  height: 140px;
-  width: 100%;
-  margin-bottom: 30px;
-  background-color: $white;
-  padding: 20px;
-  border-radius: 3px;
-  @include shadow();
-  display: flex;
+	height: 140px;
+	width: 100%;
+	margin-bottom: 30px;
+	background-color: $white;
+	padding: 20px;
+	border-radius: 3px;
+	@include shadow();
+	display: flex;
 }
 
 .userdetails-info {
-  height: 100px;
-  width: 300px;
-  display: flex;
+	height: 100px;
+	width: 300px;
+	display: flex;
 
-  span {
-    height: 100%;
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    margin-left: 15px;
-  }
+	span {
+		height: 100%;
+		width: 100%;
+		display: flex;
+		justify-content: center;
+		flex-direction: column;
+		margin-left: 15px;
+	}
 }
 
 .userdetails-avatar {
-  height: 100px;
-  min-width: 100px;
-  width: 100px;
-  user-select: none;
+	height: 100px;
+	min-width: 100px;
+	width: 100px;
+	user-select: none;
 
-  img {
-    height: 100%;
-    width: 100%;
-    border-radius: 50%;
-  }
+	img {
+		height: 100%;
+		width: 100%;
+		border-radius: 50%;
+	}
 }
 
 .userdetails-name {
-  display: flex;
-  align-items: flex-end;
-  width: 100%;
-  font-size: 1.2rem;
+	display: flex;
+	align-items: flex-end;
+	width: 100%;
+	font-size: 1.2rem;
 }
 
 .userdetails-joined {
-  display: flex;
-  align-items: flex-start;
-  width: 100%;
-  font-size: 0.8rem;
-  user-select: none;
+	display: flex;
+	align-items: flex-start;
+	width: 100%;
+	font-size: 0.8rem;
+	user-select: none;
 
-  #userdetails-date {
-    margin-left: 5px;
-  }
+	#userdetails-date {
+		margin-left: 5px;
+	}
 }
 
 .userdetails-stats {
-  height: 100px;
-  width: calc(100% - 300px);
-  @include flexCenterY();
-  justify-content: flex-end;
+	height: 100px;
+	width: calc(100% - 300px);
+	@include flexCenterY();
+	justify-content: flex-end;
 }
 
 .userdetails-stat {
-  height: 90px;
-  width: 90px;
-  margin-left: 15px;
-  border: 1px solid $lightGray;
-  border-radius: 4px;
-  padding: 10px;
-  @include flexCenterXY();
-  flex-direction: column;
-  user-select: none;
-  cursor: pointer;
-  transition: all 0.1s ease-in-out;
+	height: 90px;
+	width: 90px;
+	margin-left: 15px;
+	border: 1px solid $lightGray;
+	border-radius: 4px;
+	padding: 10px;
+	@include flexCenterXY();
+	flex-direction: column;
+	user-select: none;
+	cursor: pointer;
+	transition: all 0.1s ease-in-out;
 
-  span {
-    font-size: 1.2rem;
-  }
+	span {
+		font-size: 1.2rem;
+	}
 
-  p {
-    font-size: 0.8rem;
-  }
+	p {
+		font-size: 0.8rem;
+	}
 
-  &:hover {
-    background-color: $lightGray;
-  }
+	&:hover {
+		background-color: $lightGray;
+	}
 
-  &.active {
-    background-color: $lightGray;
-  }
+	&.active {
+		background-color: $lightGray;
+	}
 }
 
 .userdetails-empty {
-  height: 100%;
-  width: 100%;
-  @include flexCenterXY();
-  color: $gray;
+	height: 100%;
+	width: 100%;
+	@include flexCenterXY();
+	color: $gray;
 }
 
 @media (max-width: $breakpoint-mobile) {
-  .userdetails {
-    flex-direction: column;
-    height: auto;
-    width: calc(100% - 10px);
-    margin: 0 auto 15px auto;
-    padding: 15px;
-  }
+	.userdetails {
+		flex-direction: column;
+		height: auto;
+		width: calc(100% - 10px);
+		margin: 0 auto 15px auto;
+		padding: 15px;
+	}
 
-  .userdetails-info {
-    height: auto;
-    width: 100%;
-  }
+	.userdetails-info {
+		height: auto;
+		width: 100%;
+	}
 
-  .userdetails-avatar {
-    height: 50px;
-    width: 50px;
-    min-width: 50px;
-  }
+	.userdetails-avatar {
+		height: 50px;
+		width: 50px;
+		min-width: 50px;
+	}
 
-  .userdetails-name {
-    font-size: 1rem;
-  }
+	.userdetails-name {
+		font-size: 1rem;
+	}
 
-  .userdetails-joined {
-    font-size: 0.7rem;
-  }
+	.userdetails-joined {
+		font-size: 0.7rem;
+	}
 
-  .userdetails-stats {
-    width: 100%;
-    margin-top: 15px;
-    height: auto;
-  }
+	.userdetails-stats {
+		width: 100%;
+		margin-top: 15px;
+		height: auto;
+	}
 
-  .userdetails-stat {
-    height: 60px;
-    width: 80px;
+	.userdetails-stat {
+		height: 60px;
+		width: 80px;
 
-    span {
-      font-size: 1rem;
-    }
+		span {
+			font-size: 1rem;
+		}
 
-    p {
-      font-size: 0.7rem;
-    }
-  }
+		p {
+			font-size: 0.7rem;
+		}
+	}
 }

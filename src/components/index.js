@@ -8,4 +8,3 @@ export { default as PostsList } from "./PostsList/PostsList";
 export { default as PostSocial } from "./PostSocial/PostSocial";
 export { default as SignUp } from "../pages/SignUp/SignUp";
 export { default as UserDetails } from "./UserDetails/UserDetails";
-export { default as UserProfile } from "./UserProfile/UserProfile";

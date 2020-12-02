@@ -1,20 +1,20 @@
 import React, { useEffect, useState } from "react";
-import "./UserDetails.scss";
-import avatar from "../res/avatar-default.png";
 import { useSelector } from "react-redux";
 import { useFirestoreConnect } from "react-redux-firebase";
 import Moment from "react-moment";
+import "./UserDetails.scss";
 
-import Post from "../Post/Post";
+import { Post } from "../../components";
+
+import avatar from "../../res/avatar-default.png";
 
 const UserDetails = ({ match }) => {
 	useFirestoreConnect([{ collection: "userNames" }]);
 	useFirestoreConnect([{ collection: "users" }]);
 	useFirestoreConnect([{ collection: "posts" }]);
-	const userNames = useSelector(state => state.firestore.data.userNames);
-	const users = useSelector(state => state.firestore.data.users);
+	const { userNames, users } = useSelector(state => state.firestore.data);
 	const posts = useSelector(state => state.firestore.ordered.posts);
-	const user = match.params.id;
+	const user = match?.params?.id;
 
 	const [searchedUsersUid, setSearchedUsersUid] = useState(null);
 	const [searchedUser, setSearchedUser] = useState(null);
@@ -22,14 +22,11 @@ const UserDetails = ({ match }) => {
 
 	useEffect(() => {
 		if (user && userNames && !searchedUsersUid) {
-			if (userNames[user]) {
-				setSearchedUsersUid(userNames[user].uid);
-			}
-		} else if (searchedUsersUid && users) {
-			if (users[searchedUsersUid]) {
-				setSearchedUser(users[searchedUsersUid]);
-			}
-		} else {
+			userNames[user] && setSearchedUsersUid(userNames[user].uid);
+		}
+
+		if (searchedUsersUid && users) {
+			users[searchedUsersUid] && setSearchedUser(users[searchedUsersUid]);
 		}
 	}, [user, userNames, searchedUsersUid, users]);
 

@@ -1,33 +1,33 @@
-@import "../main.scss";
+@import "../../main.scss";
 
 .new-post-body {
-  width: 100%;
+	width: 100%;
 }
 
 #textarea {
-  padding: 1rem;
-  font-size: 0.9rem;
-  width: 100%;
-  resize: none;
-  border: 1px solid $lighterGray;
-  overflow: hidden;
-  border-radius: 5px;
+	padding: 1rem;
+	font-size: 0.9rem;
+	width: 100%;
+	resize: none;
+	border: 1px solid $lighterGray;
+	overflow: hidden;
+	border-radius: 5px;
 }
 
 .DraftEditor-root,
 .DraftEditor-editorContainer,
 .public-DraftEditor-content {
-  width: 100%;
+	width: 100%;
 }
 
 .DraftEditor-root {
-  border: 1px solid $lightGray;
-  border-radius: 3px;
-  padding: 19px 20px;
+	border: 1px solid $lightGray;
+	border-radius: 3px;
+	padding: 19px 20px;
 }
 
 .public-DraftEditorPlaceholder-root {
-  position: absolute;
-  color: $gray;
-  pointer-events: none;
+	position: absolute;
+	color: $gray;
+	pointer-events: none;
 }

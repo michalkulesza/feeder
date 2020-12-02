@@ -6,7 +6,7 @@ import { Editor, EditorState } from "draft-js";
 import { stateToHTML } from "draft-js-export-html";
 
 import PostMisc from "../PostMisc/PostMisc";
-import avatar from "../res/avatar-default.png";
+import avatar from "../../res/avatar-default.png";
 
 const NewPost = ({ uid, username, users }) => {
 	const dispatch = useDispatch();

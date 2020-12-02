@@ -1,10 +1,10 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useFirestoreConnect } from "react-redux-firebase";
-import { deletePost } from "../redux/actions/postActions";
-import { deleteLikesFromUser, deletePostFromUser } from "../redux/actions/userAction";
+import { deletePost } from "../../redux/actions/postActions";
+import { deleteLikesFromUser, deletePostFromUser } from "../../redux/actions/userAction";
 
-import { PostsList, InfoPost, NewPost } from "../components";
+import { PostsList, InfoPost, NewPost } from "../../components";
 import "./Home.scss";
 
 const Home = () => {
