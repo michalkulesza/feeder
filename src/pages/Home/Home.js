@@ -4,7 +4,8 @@ import { useFirestoreConnect } from "react-redux-firebase";
 import { deletePost } from "../../redux/actions/postActions";
 import { deleteLikesFromUser, deletePostFromUser } from "../../redux/actions/userAction";
 
-import { PostsList, InfoPost, NewPost } from "../../components";
+import { PostsList, InfoPost } from "../../components";
+import { NewPost } from "../../containers";
 import "./Home.scss";
 
 const Home = () => {

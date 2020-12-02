@@ -1,8 +1,9 @@
 import React from "react";
-import "./Navbar.scss";
 import { withRouter, Link } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { logoutUser } from "../../redux/actions/userAction";
+
+import "./Navbar.scss";
 
 const button = (props, authUid, dispatch, userName) => {
 	switch (props.location.pathname) {
@@ -43,9 +44,9 @@ const button = (props, authUid, dispatch, userName) => {
 };
 
 const Navbar = props => {
+	const dispatch = useDispatch();
 	const authUid = useSelector(state => state.firebase.auth.uid);
 	const userName = useSelector(state => state.firebase.profile.username);
-	const dispatch = useDispatch();
 
 	return (
 		<div className="navbar-container">
@@ -53,7 +54,7 @@ const Navbar = props => {
 				<Link to="/">
 					<div className="logo">Feeder</div>
 				</Link>
-				{button(props, authUid, dispatch, userName)}
+				{props.location && button(props, authUid, dispatch, userName)}
 			</div>
 		</div>
 	);

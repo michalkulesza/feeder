@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from "react";
-import "./NewPost.scss";
 import { useDispatch } from "react-redux";
 import { addPost } from "../../redux/actions/postActions";
 import { Editor, EditorState } from "draft-js";
 import { stateToHTML } from "draft-js-export-html";
+import "./NewPost.scss";
 
-import PostMisc from "../PostMisc/PostMisc";
+import { PostMisc } from "../../components";
+
 import avatar from "../../res/avatar-default.png";
 
 const NewPost = ({ uid, username, users }) => {
@@ -20,12 +21,12 @@ const NewPost = ({ uid, username, users }) => {
 		likesUid: [],
 	};
 
+	const editor = React.createRef();
 	const [isFocus, setIsFocus] = useState(false);
 	const [active, setActive] = useState(false);
 	const [post, setPost] = useState(postsInitValue);
 	const [editorState, setEditorState] = useState(EditorState.createEmpty());
 	const [editorContentInHTML] = useState(null);
-	let editor = React.createRef();
 
 	useEffect(() => {
 		isFocus ? setActive(true) : setActive(false);
