@@ -1,12 +1,12 @@
 import React from "react";
-import { withRouter, Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { logoutUser } from "../../redux/actions/userAction";
 
 import "./Navbar.scss";
 
-const button = (props, authUid, dispatch, userName) => {
-	switch (props.location.pathname) {
+const button = (location, authUid, dispatch, userName) => {
+	switch (location.pathname) {
 		case "/signup":
 			return (
 				<Link to="/login">
@@ -43,7 +43,8 @@ const button = (props, authUid, dispatch, userName) => {
 	}
 };
 
-const Navbar = props => {
+const Navbar = () => {
+	const location = useLocation();
 	const dispatch = useDispatch();
 	const authUid = useSelector(state => state.firebase.auth.uid);
 	const userName = useSelector(state => state.firebase.profile.username);
@@ -54,10 +55,10 @@ const Navbar = props => {
 				<Link to="/">
 					<div className="logo">Feeder</div>
 				</Link>
-				{props.location && button(props, authUid, dispatch, userName)}
+				{button(location, authUid, dispatch, userName)}
 			</div>
 		</div>
 	);
 };
 
-export default withRouter(Navbar);
+export default Navbar;
