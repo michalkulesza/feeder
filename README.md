@@ -19,7 +19,8 @@ Users can register and post a message on a feed page.</h4>
 ## Installation
 
 - `git clone https://github.com/michalkulesza/feeder` - clone
-- `cd credit-card` - change directory
+- `cd feeder` - change directory
+- Create `config.js` in `src/firebase/` that exports `const firebaseConfig = { }` with your Firebase details
 - `npm i` - install
 - `npm run` - run
 

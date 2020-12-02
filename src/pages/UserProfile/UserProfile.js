@@ -1,7 +1,7 @@
 import React from "react";
 import "./UserProfile.scss";
 
-import { UserDetails } from "../../components";
+import { UserDetails } from "../../containers";
 
 const UserProfile = props => {
 	return (

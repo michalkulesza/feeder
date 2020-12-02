@@ -6,4 +6,3 @@ export { default as PostMisc } from "./PostMisc/PostMisc";
 export { default as PostsList } from "./PostsList/PostsList";
 export { default as PostSocial } from "./PostSocial/PostSocial";
 export { default as SignUp } from "../pages/SignUp/SignUp";
-export { default as UserDetails } from "./UserDetails/UserDetails";

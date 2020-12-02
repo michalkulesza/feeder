@@ -70,27 +70,9 @@ const UserDetails = ({ match }) => {
 			</div>
 			{activeDisplay === "likes" ? (
 				searchedUser.likedPostsUid.length > 0 ? (
-					searchedUser.likedPostsUid.map(like => {
-						return posts.map(post => {
-							return (
-								post.id === like && (
-									<Post
-										content={post.body}
-										author={post.author}
-										authorsUid={post.uid}
-										postId={post.id}
-										likes={post.likes}
-										likesUid={post.likesUid}
-										likesUsers={post.likesUsers}
-										createdAt={post.createdAt}
-										key={post.id}
-										postKey={post.id}
-										disableLike={true}
-									></Post>
-								)
-							);
-						});
-					})
+					searchedUser.likedPostsUid.map(like =>
+						posts.map(post => post.id === like && <Post post={post} disableLike={true} />)
+					)
 				) : (
 					<div className="noti-container">
 						<span>User didn't liked any post yet...</span>
@@ -99,25 +81,7 @@ const UserDetails = ({ match }) => {
 			) : activeDisplay === "posts" ? (
 				searchedUser.posts.length > 0 ? (
 					searchedUser.posts.map(userPost => {
-						return posts.map(post => {
-							return (
-								post.id === userPost && (
-									<Post
-										content={post.body}
-										author={post.author}
-										authorsUid={post.uid}
-										postId={post.id}
-										likes={post.likes}
-										likesUid={post.likesUid}
-										likesUsers={post.likesUsers}
-										createdAt={post.createdAt}
-										key={post.id}
-										postKey={post.id}
-										disableLike={true}
-									></Post>
-								)
-							);
-						});
+						return posts.map(post => post.id === userPost && <Post post={post} disableLike={true} />);
 					})
 				) : (
 					<div className="noti-container">
