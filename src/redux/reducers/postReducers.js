@@ -1,5 +1,5 @@
 // import { ADD_POST } from "../types";
 
-export default (state = {}, action) => {
-  return state;
+export const postReducer = (state = {}, action) => {
+	return state;
 };

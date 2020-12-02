@@ -1,12 +1,12 @@
 import React from "react";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { logoutUser } from "../../redux/actions/userAction";
 
 import "./Navbar.scss";
 
-const button = (location, authUid, dispatch, userName) => {
-	switch (location.pathname) {
+const button = (history, authUid, dispatch, userName) => {
+	switch (history.location.pathname) {
 		case "/signup":
 			return (
 				<Link to="/login">
@@ -28,7 +28,7 @@ const button = (location, authUid, dispatch, userName) => {
 					<div
 						className="button red"
 						onClick={() => {
-							dispatch(logoutUser(props.history));
+							dispatch(logoutUser(history));
 						}}
 					>
 						Logout
@@ -44,7 +44,7 @@ const button = (location, authUid, dispatch, userName) => {
 };
 
 const Navbar = () => {
-	const location = useLocation();
+	const history = useHistory();
 	const dispatch = useDispatch();
 	const authUid = useSelector(state => state.firebase.auth.uid);
 	const userName = useSelector(state => state.firebase.profile.username);
@@ -55,7 +55,7 @@ const Navbar = () => {
 				<Link to="/">
 					<div className="logo">Feeder</div>
 				</Link>
-				{button(location, authUid, dispatch, userName)}
+				{button(history, authUid, dispatch, userName)}
 			</div>
 		</div>
 	);
