@@ -48,6 +48,10 @@
 		]
 	},
 	"devDependencies": {
-		"node-sass": "^4.13.1"
+		"@types/jest": "^26.0.16",
+		"enzyme": "^3.11.0",
+		"enzyme-adapter-react-16": "^1.15.5",
+		"node-sass": "^4.13.1",
+		"redux-mock-store": "^1.5.4"
 	}
 }
