@@ -1,0 +1,5 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<PostMisc/> should match the snapshot with props 1`] = `"<div class=\\"post-misc\\"><span></span><div class=\\"right\\"><div class=\\"button green\\">Send it</div></div></div>"`;
+
+exports[`<PostMisc/> should match the snapshot without props 1`] = `"<div class=\\"post-misc\\"><span></span><div class=\\"right\\"><div class=\\"button green\\">Send it</div></div></div>"`;
