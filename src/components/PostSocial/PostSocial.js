@@ -26,7 +26,7 @@ const PostSocial = ({ currentUid, handleLike, handleDislike, username, post }) =
 				post?.likesUid?.includes(currentUid) ? (
 					<div
 						className="button red"
-						onClick={() => handleDislike(username, currentUid, post.postKey)}
+						onClick={() => handleDislike(username, currentUid, post.id)}
 						key={new Date().getTime() * Math.random()}
 					>
 						Dislike
@@ -34,7 +34,7 @@ const PostSocial = ({ currentUid, handleLike, handleDislike, username, post }) =
 				) : post.disableLike !== true ? (
 					<div
 						className="button"
-						onClick={() => handleLike(username, currentUid, post.postKey)}
+						onClick={() => handleLike(username, currentUid, post.id)}
 						key={new Date().getTime() * Math.random()}
 					>
 						Like

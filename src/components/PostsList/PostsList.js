@@ -4,7 +4,9 @@ import { Post } from "../../components";
 const PostsList = ({ posts, uid, handleDelete, username }) => {
 	return posts
 		? posts.length > 0 &&
-				posts.map(post => <Post post={post} currentUid={uid} handleDelete={handleDelete} username={username} />)
+				posts.map(post => (
+					<Post key={post.id} post={post} currentUid={uid} handleDelete={handleDelete} username={username} />
+				))
 		: null;
 };
 

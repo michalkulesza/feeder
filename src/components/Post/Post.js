@@ -21,11 +21,11 @@ const Post = ({ post, currentUid, handleDelete, username }) => {
 		e.currentTarget.parentElement.parentElement.parentElement.classList.remove("active");
 	};
 
-	const handleLike = (username, currentUid, postKey) => {
-		dispatch(likePost(username, currentUid, postKey));
+	const handleLike = (username, currentUid, id) => {
+		dispatch(likePost(username, currentUid, id));
 	};
-	const handleDislike = (username, currentUid, postKey) => {
-		dispatch(dislikePost(username, currentUid, postKey));
+	const handleDislike = (username, currentUid, id) => {
+		dispatch(dislikePost(username, currentUid, id));
 	};
 
 	return post ? (
@@ -54,7 +54,7 @@ const Post = ({ post, currentUid, handleDelete, username }) => {
 					<div className="post-delete-confirmation-wrapper">
 						<p>Are you sure that you want to delete this post?</p>
 						<span>
-							<div className="button red" onClick={() => handleDelete(post.postKey)}>
+							<div className="button red" onClick={() => handleDelete(post.id)}>
 								Delete
 							</div>
 							<div className="button" onClick={handleConfirmCancel}>
